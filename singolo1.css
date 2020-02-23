@@ -1,0 +1,226 @@
+@font-face {
+  font-family: Lato light;
+  font-weight: 300;
+  font-style: normal;
+  src:url(./assets/fonts/Lato-Light.ttf);
+}
+@font-face {
+  font-family: Lato regular;
+  font-weight: 400;
+  font-style: normal;
+  src:url(./assets/fonts/Lato-Regular.ttf);
+}
+@font-face {
+  font-family: Lato bold;
+  font-weight: 700;
+  font-style: normal;
+  src:url(./assets/fonts/Lato-Bold.ttf);
+}
+@font-face {
+  font-family: Lato black;
+  font-weight: 900;
+  font-style: normal;
+  src:url(./assets/fonts/Lato-Black.ttf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/*__ Fonts __*/
+
+body {
+  font-family: Verdana, sans-serif;
+}
+
+h1 {
+  font-family: 'Lato bold';
+  font-size: 25px;
+}
+
+.navigation li a {
+  font-family: 'Lato bold';
+  font-size: 12px;
+}
+
+h2 {
+  font-family: 'Lato black';
+  font-size: 30px;
+}
+
+h3 {
+  font-family: 'Lato black';
+  font-size: 18px;
+}
+
+.services__description {
+  font-family: 'Lato light';
+  font-size: 18px;
+}
+
+.services__text {
+  font-family: 'Lato regular';
+  font-size: 12px;
+}
+
+/*__ Content __*/
+
+.container {
+  margin: 0 auto;
+  width: 1020px;
+}
+
+.wrapper {
+  margin: 0 auto;
+  width: 940px;
+  height: 100%;
+}
+
+/*__ Header __*/
+
+header {
+  height: 89px;
+  background-color: rgb(45, 48, 58);
+  border-bottom: 6px solid rgb(50, 55, 70);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.header__logo,
+.header__link {
+  color: white;
+}
+
+.header__red-star,
+.header__link_colored {
+  color: rgb(240, 108, 100);
+}
+
+a {
+  text-decoration: none;
+}
+
+.navigation li {
+  display: inline;
+}
+
+.navigation li::before {
+  content: "·";
+  padding: 0px 11px 0 6px;
+  color: rgb(73, 78, 98);
+}
+
+.navigation li:first-child::before {
+  content: none;
+}
+
+h1,
+nav {
+  align-self: center;
+}
+
+h1 {
+  position: relative;
+  bottom: 1px;
+}
+
+.header__logo {
+  letter-spacing: -1px;
+}
+
+.header__navigation {
+  position: relative;
+  top: 3px;
+}
+
+/*__ Slider __*/
+
+.slider {
+  height: 594px;
+  background-color: rgb(240, 108, 100);
+  border-bottom: 6px solid rgb(234, 103, 107);
+}
+
+.slider__chev-left {
+  position: relative;
+  bottom: 175px;
+  left: 2px;
+  cursor: pointer;
+}
+
+.slider__chev-right {
+  position: relative;
+  bottom: 175px;
+  left: 168px;
+  cursor: pointer;
+}
+
+.slider__iphone-vertical {
+  position: relative;
+  top: 53px;
+  left: 51px;
+}
+
+.slider__iphone-horizontal {
+  position: relative;
+  bottom: 69px;
+  left: 118px;
+}
+
+/*__ Services __*/
+
+.services__title,
+.services__description,
+.services__blocks .services__block h3,
+.services__blocks .services__block p {
+  color: rgb(102, 109, 137);
+}
+
+.services {
+  height: 494px;
+  background-color: rgb(242, 242, 242);
+  border-bottom: 6px solid rgb(255, 255, 255);
+}
+
+.services__title {
+  padding: 59px 0 18px;
+}
+
+.services__description {
+  line-height: 30px;
+}
+
+.services__blocks {
+  position: relative;
+  left: 1px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 47px -10px 0;
+}
+
+.services__block {
+  margin: 0 10px 41px;
+  width: 300px;
+}
+
+.services__block aside {
+  float: left;
+  height: 100%;
+  margin-right: 20px;
+}
+
+.services__block h3 {
+  position: relative;
+  bottom: 4px;
+}
+
+p.services__text {
+  position: relative;
+  top: 5px;
+  line-height: 20px;
+}
