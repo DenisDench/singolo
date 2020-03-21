@@ -94,7 +94,7 @@ form > button {
 
 .container {
   margin: 0 auto;
-  width: 1020px;
+  width: 100%;
 }
 
 .wrapper {
@@ -122,9 +122,17 @@ header {
   color: white;
 }
 
-.header__red-star,
-.header__link_colored {
+.header__red-star {
   color: rgb(240, 108, 100);
+}
+
+.header__link_selected {
+  color: rgb(240, 108, 100);
+}
+
+.header__link:hover {
+  color: rgb(240, 108, 100);
+  text-decoration-line: underline;
 }
 
 a {
@@ -173,29 +181,56 @@ h1 {
 }
 
 .slider__chev-left {
-  position: relative;
-  bottom: 175px;
-  left: 2px;
+  position: absolute;
+  top: 376px;
+  left: 484px;
   cursor: pointer;
 }
 
 .slider__chev-right {
-  position: relative;
-  bottom: 175px;
-  left: 168px;
+  position: absolute;
+  top: 376px;
+  right: 481px;
   cursor: pointer;
+}
+
+.slider__container,
+.slider__iphones {
+  position: absolute;
+  width: 940px;
+  height: 594px;
+}
+
+.slider__iphones {
+  display: flex;
+}
+
+.slider__iphones img{
+  margin: auto;
+}
+
+.hidden {
+  display: none;
+}
+
+.bg-red {
+  background-color: rgb(240, 108, 100);
+}
+
+.bg-blue {
+  background-color: rgb(100, 139, 240);
 }
 
 .slider__iphone-vertical {
   position: relative;
   top: 53px;
-  left: 51px;
+  left: 72px;
 }
 
 .slider__iphone-horizontal {
   position: relative;
-  bottom: 69px;
-  left: 118px;
+  top: -69px;
+  left: 140px;
 }
 
 /*__ Services __*/
