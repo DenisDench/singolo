@@ -1,49 +1,117 @@
-const NAVIGATION = document.getElementById('navigation');
-const SLIDER = document.getElementById('slider');
+/* SCROLL */
 
-/* MENU */
+document.addEventListener('scroll', onScroll);
 
-NAVIGATION.querySelectorAll('li>a');
+function onScroll(event) {
+  const currentPosition = window.scrollY;
+  const header = document.querySelector('header');
+  const sections = document.querySelectorAll('main>section');
+  const links = document.querySelectorAll('#navigation>li>a');
 
-NAVIGATION.addEventListener('click', (event) => {
-  NAVIGATION.querySelectorAll('li>a').forEach(element => element.classList.remove('header__link_selected'));
-  event.target.classList.add('header__link_selected');
-});
+  sections.forEach((elem) => {
+    if (elem.offsetTop - header.offsetHeight <= currentPosition
+    && (elem.offsetTop + elem.offsetHeight) > 0) {
+      links.forEach((link) => {
+        link.classList.remove('header__link_selected');
+        if (elem.getAttribute('id') == link.getAttribute('href').substring(1)) {
+          link.classList.add('header__link_selected');
+        }
+      })
+    }
+  });
+};
+
 
 /* SLIDER */
 
-// массив из слайдов
-let sliderBlocks = document.querySelectorAll('.slider__container, .slider__iphones');
-let currentBlock = 0; // текущий слайд
-let sliderBackground = ['bg-red', 'bg-blue'];
+const carousel = document.querySelector('.slider__carousel');
+const slider = document.querySelector('.slider__layout');
+const prev = document.querySelector('.slider__arrow-left');
+const next = document.querySelector('.slider__arrow-right');
 
-// функция для перебора слайдов
-function slider() {
-  for (let i = 0; i < sliderBlocks.length; i++) { // работает некорректно
-    sliderBlocks[i].classList.add('hidden');
-    if (sliderBlocks[i].classList.contains('hidden')) {
-      document.querySelector('.slider').classList.toggle(sliderBackground[i]);
-    }
+let direction = -1;
+
+prev.addEventListener('click', () => {
+  if (direction == -1) {
+    slider.append(slider.firstElementChild);
   };
-  sliderBlocks[currentBlock].classList.remove('hidden');  
-}
+  direction = 1;
+  carousel.style.justifyContent = 'flex-end';
+  slider.style.transform = 'translate(50%)';
+});
 
-document.querySelector('.slider__chev-left').onclick = function() {
-  if (currentBlock - 1 == -1) {
-    currentBlock = sliderBlocks.length - 1;
-  } else {
-    currentBlock--;
+next.addEventListener('click', () => {
+  if (direction == 1) {
+    slider.prepend(slider.lastElementChild);
   }
-  slider();
-};
+  direction = -1;
+  carousel.style.justifyContent = 'flex-start';
+  slider.style.transform = 'translate(-50%)';
+});
 
-document.querySelector('.slider__chev-right').onclick = function() {
-  if (currentBlock + 1 == sliderBlocks.length) {
-    currentBlock = 0;
+slider.addEventListener('transitionend', () => {
+  if (direction == -1) {
+    slider.append(slider.firstElementChild);
+  } else if (direction == 1) {
+    slider.prepend(slider.lastElementChild);
+  };
+
+  slider.style.transition = 'none';
+  slider.style.transform = 'translate(0)';
+  setTimeout(() => {
+    slider.style.transition = 'all 0.5s';
+  });
+});
+
+slider.addEventListener('transitionstart', () => { // етить, вот это костыль
+  const sliderSection = document.querySelector('.slider');
+
+  if (sliderSection.classList.contains('bg-blue')) {
+    sliderSection.classList.remove('bg-blue');
+    sliderSection.classList.add('bg-red');
   } else {
-    currentBlock++;
-  }
-  slider();
-};
+    sliderSection.classList.add('bg-blue');
+    sliderSection.classList.remove('bg-red');
+  };
+});
 
 // вкл/выкл экран
+
+const iphoneVerticalHome = document.querySelector('.slider__iphone-vertical > .home-btn');
+const iphoneVerticalScreen = document.querySelector('.slider__iphone-vertical > .black-screen');
+
+iphoneVerticalHome.addEventListener('click', () => {
+  iphoneVerticalScreen.classList.toggle('hidden');
+});
+
+const iphoneHorizontalHome = document.querySelector('.slider__iphone-horizontal > .home-btn');
+const iphoneHorizontalScreen = document.querySelector('.slider__iphone-horizontal > .black-screen');
+
+iphoneHorizontalHome.addEventListener('click', () => {
+  iphoneHorizontalScreen.classList.toggle('hidden');
+});
+
+
+/* PORTFOLIO */
+
+const TAGS = document.querySelector('.tags');
+const IMAGES = document.querySelector('.portfolio__images');
+const IMAGES_COLLECTION = document.querySelectorAll('.portfolio__image');
+
+// переключение тегов
+
+TAGS.addEventListener('click', (event) => {
+  TAGS.querySelectorAll('.tag').forEach(tag => tag.classList.remove('tag-active'));
+  event.target.classList.add('tag-active');
+
+  IMAGES_COLLECTION.forEach(img => {
+    img.style.order = Math.floor(Math.random() * IMAGES_COLLECTION.length + 1);
+  });
+});
+
+// выделение изображения
+
+IMAGES.addEventListener('click', (event) => {
+  IMAGES_COLLECTION.forEach(img => img.classList.remove('image-active'));
+  event.target.classList.add('image-active');
+});
