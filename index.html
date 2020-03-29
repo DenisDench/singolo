@@ -14,26 +14,45 @@
           <a class="header__logo" href="#">SINGOLO<span class="header__red-star">*</span></a>
         </h1>
         <nav class="header__navigation">
-          <ul class="navigation">
-            <li><a class="header__link header__link_colored" href="#">HOME</a></li>
-            <li><a class="header__link" href="#">SERVICES</a></li>
-            <li><a class="header__link" href="#">PORTFOLIO</a></li>
-            <li><a class="header__link" href="#">ABOUT</a></li>
-            <li><a class="header__link" href="#">CONTACT</a></li>
+          <ul class="navigation" id="navigation">
+            <li><a class="header__link header__link_selected" href="#home">HOME</a></li>
+            <li><a class="header__link" href="#services">SERVICES</a></li>
+            <li><a class="header__link" href="#portfolio">PORTFOLIO</a></li>
+            <li><a class="header__link" href="#about">ABOUT</a></li>
+            <li><a class="header__link" href="#quote">CONTACT</a></li>
           </ul>
         </nav>
       </div>
     </header>
     <main>
-      <section class="slider">
+      <section class="slider" id="home">
         <div class="wrapper">
-          <img class="slider__chev-left" src="./assets/icons/chev-left.png" alt="previous">
-          <img class="slider__iphone-vertical" src="./assets/img/iPhone Vertical.png" alt="iPhone Vertical">
-          <img class="slider__iphone-horizontal" src="./assets/img/iPhone Horizontal.png" alt="iPhone Horizontal">
-          <img class="slider__chev-right" src="./assets/icons/chev-right.png" alt="next">
+          <div class="slider__arrows">
+            <img class="slider__arrow-left" src="./assets/icons/arrow-left.png" alt="previous">
+            <img class="slider__arrow-right" src="./assets/icons/arrow-right.png" alt="next">
+          </div>
+          <div class="slider__carousel">
+            <div class="slider__layout">
+              <div class="slider__slide1">
+                <div class="slider__iphone-vertical">
+                  <img src="./assets/img/iPhone Vertical.png" alt="iPhone Vertical">
+                  <div class="home-btn"></div>
+                  <div class="black-screen hidden"></div>
+                </div>
+                <div class="slider__iphone-horizontal">
+                  <img src="./assets/img/iPhone Horizontal.png" alt="iPhone Horizontal">
+                  <div class="home-btn"></div>
+                  <div class="black-screen hidden"></div>
+                </div>
+              </div>
+              <div class="slider__slide2">
+                <img src="./assets/img/slider/iPhones.png" alt="iPhones">
+              </div>
+            </div>
+          </div>
         </div>
       </section>
-      <section class="services">
+      <section class="services" id="services">
         <div class="wrapper">
           <h2 class="services__title">Our Services</h2>
           <p class="services__description">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum. Duis mollis, non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
@@ -83,15 +102,15 @@
           </div>
         </div>
       </section>
-      <section class="portfolio">
+      <section class="portfolio" id="portfolio">
         <div class="wrapper">
           <h2 class="portfolio__title">Portfolio</h2>
           <p class="portfolio__description">Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
           <div class="portfolio__tags tags">
-            <span class="tag tag-selected">All</span>
-            <span class="tag tag-bordered">Web Design</span>
-            <span class="tag tag-bordered">Graphic Design</span>
-            <span class="tag tag-bordered">Artwork</span>
+            <span class="tag tag-active">All</span>
+            <span class="tag">Web Design</span>
+            <span class="tag">Graphic Design</span>
+            <span class="tag">Artwork</span>
           </div>
           <div class="portfolio__images">
             <img class="portfolio__image" src="./assets/img/portfolio/Image1.png" alt="Image">
@@ -109,7 +128,7 @@
           </div>
         </div>
       </section>
-      <section class="about">
+      <section class="about" id="about">
         <div class="wrapper">
           <h2 class="about__title">About Us</h2>
           <p class="about__description">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum. Duis mollis, non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
@@ -150,7 +169,7 @@
           </div>
         </div>
       </section>
-      <section class="quote">
+      <section class="quote" id="quote">
         <div class="wrapper">
           <h2 class="quote__title">Get a Quote</h2>
           <p class="quote__description">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum. Duis mollis, non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
@@ -187,5 +206,6 @@
       </div>
     </footer>
   </div>
+  <script src="./script.js"></script>
 </body>
 </html>
